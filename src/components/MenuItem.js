@@ -1,6 +1,7 @@
+// src/components/MenuItem.js
 import React, { useState, memo } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import PaperBlock from './PaperBlock';
+import { PaperBlock } from './common/PaperComponents';
 
 const MenuItem = memo(({ 
   icon: Icon, 
@@ -17,9 +18,12 @@ const MenuItem = memo(({
   const hasChildren = children && children.length > 0;
 
   const handleClick = (e) => {
+    e.stopPropagation(); // Prevent event from bubbling up
+    
     if (hasChildren) {
-      e.stopPropagation(); // Prevent event from bubbling up
       setIsOpen(!isOpen);
+      // Also trigger the onClick to update the current page
+      onClick?.(label);
     } else {
       onClick?.(label);
     }
@@ -49,25 +53,24 @@ const MenuItem = memo(({
         </button>
       </PaperBlock>
       
-      {isOpen && hasChildren && (
+      {hasChildren && (
         <div className={`
           pl-6 mt-3 
           relative 
-          transition-all duration-300 ease-out
-          ${isOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-4'}
+          transition-all duration-300 ease-out overflow-hidden
+          ${isOpen ? 'opacity-100 max-h-[1000px]' : 'opacity-0 max-h-0'}
         `}>
           {/* File tree line */}
           <div className="absolute left-6 top-0 bottom-4 w-px bg-white/20" />
           
           <div className="space-y-3">
-            {children.map((childItem, index) => (
+            {children?.map((childItem, index) => (
               <div key={childItem.label} className="relative">
                 {/* Horizontal connector line */}
                 <div className="absolute left-[-24px] top-1/2 w-6 h-px bg-white/20" />
                 <MenuItem 
                   {...childItem}
-                  // Use the child's color directly, no fallback to parent color
-                  color={childItem.color}
+                  color={childItem.color || color}
                   rotate={-1 + Math.random() * 2}
                   className="menu-item-enter"
                   animationDelay={index * 0.1}

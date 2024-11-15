@@ -12,6 +12,9 @@ import {
   ChevronRight,
   ChefHat,
   Medal,
+  CircleDollarSign,
+  ChartNoAxesCombined,
+  TriangleAlert,
 } from 'lucide-react';
 import MenuItem from './MenuItem';
 import PaperBlock from './PaperBlock';
@@ -46,13 +49,23 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
           { icon: Star, label: 'Chapter 5', color: 'bg-custom-blue' },
           { icon: Star, label: 'Chapter 6', color: 'bg-amber-600' },
           { icon: Star, label: 'Chapter 7', color: 'bg-slate-500' },
-          { icon: Star, label: 'Chapter 8', color: 'bg-slate-700' }
+          { icon: Star, label: 'Chapter 8', color: 'bg-custom-maroon' }
         ]
       },
       { icon: ChefHat, label: 'Recipes', color: 'bg-custom-green', rotate: 0.5 },
       { icon: Sword, label: 'Tattle Log', color: 'bg-custom-blue', rotate: -0.5 },
       { icon: BadgeAlert, label: 'Badge Builds', color: 'bg-custom-purple', rotate: 1 },
-      { icon: Medal, label: 'Tips & Tricks', color: 'bg-custom-red', rotate: 1 }
+      { 
+        icon: Medal,
+        label: 'Tips & Tricks', 
+        color: 'bg-custom-red', 
+        rotate: 1,
+        children: [
+          { icon: CircleDollarSign, label: 'Money Making', color: 'bg-custom-orange' },
+          { icon: ChartNoAxesCombined, label: 'Experience Farms', color: 'bg-custom-green' },
+          { icon: TriangleAlert, label: 'Pit of 100 Trials', color: 'bg-slate-700' }
+        ] 
+      }
     ];
 
   const statsItems = [
