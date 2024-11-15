@@ -37,8 +37,8 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
         color: 'bg-amber-500', 
         rotate: -1, 
         children: [
-          { icon: Star, label: 'Chapter 1', color: 'bg-amber-500' },
-          { icon: Star, label: 'Chapter 2', color: 'bg-amber-500' },
+          { icon: Star, label: 'Chapter 1', color: 'bg-grey-500' },
+          { icon: Star, label: 'Chapter 2', color: 'bg-emerald-500' },
           { icon: Star, label: 'Chapter 3', color: 'bg-amber-500' }
         ]
       },
@@ -73,7 +73,7 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
           <div className="flex-none">
             <PaperBlock color="bg-rose-500" rotate={-1} animationDelay={0.1}>
               <div className="p-4 text-white">
-                <h1 className="text-2xl font-black mb-1">Paper Guide</h1>
+                <h1 className="text-2xl font-black mb-1">PaperView</h1>
                 <div className="flex items-center gap-2 text-sm bg-black/20 p-2 rounded-lg">
                   <Timer className="w-4 h-4" />
                   <span>Play Time: 00:03</span>

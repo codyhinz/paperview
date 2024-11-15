@@ -2,7 +2,17 @@ import React, { useState, memo } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import PaperBlock from './PaperBlock';
 
-const MenuItem = memo(({ icon: Icon, label, children, color, isActive, onClick, rotate = 0, animationDelay = 0, depth = 0 }) => {
+const MenuItem = memo(({ 
+  icon: Icon, 
+  label, 
+  children, 
+  color, 
+  isActive, 
+  onClick, 
+  rotate = 0, 
+  animationDelay = 0, 
+  depth = 0 
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const hasChildren = children && children.length > 0;
 
@@ -56,7 +66,8 @@ const MenuItem = memo(({ icon: Icon, label, children, color, isActive, onClick, 
                 <div className="absolute left-[-24px] top-1/2 w-6 h-px bg-white/20" />
                 <MenuItem 
                   {...childItem}
-                  color={color}
+                  // Use the child's color directly, no fallback to parent color
+                  color={childItem.color}
                   rotate={-1 + Math.random() * 2}
                   className="menu-item-enter"
                   animationDelay={index * 0.1}
