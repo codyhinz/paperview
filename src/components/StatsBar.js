@@ -5,9 +5,9 @@ import PaperBlock from './PaperBlock';
 const StatsBar = () => (
   <div className="flex gap-4 mb-6 -rotate-1 overflow-x-auto pb-2">
     {[
-      { icon: Heart, value: '10/10', color: 'bg-rose-500' },
-      { icon: Star, value: '73', color: 'bg-amber-500' },
-      { icon: Timer, value: '00:03', color: 'bg-blue-500' }
+      { icon: Heart, value: '100/100', color: 'bg-rose-500' },
+      { icon: Star, value: '99', color: 'bg-amber-500' },
+      { icon: Timer, value: '999:99', color: 'bg-blue-500' }
     ].map(({ icon: Icon, value, color }, index) => (
       <PaperBlock 
         key={index} 

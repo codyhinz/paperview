@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChefHat,
+  Medal,
 } from 'lucide-react';
 import MenuItem from './MenuItem';
 import PaperBlock from './PaperBlock';
@@ -38,25 +39,26 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
         rotate: -1, 
         children: [
           { icon: Star, label: 'Prologue', color: 'bg-custom-pink' },
-          { icon: Star, label: 'Chapter 1', color: 'bg-slate-500' },
+          { icon: Star, label: 'Chapter 1', color: 'bg-slate-400' },
           { icon: Star, label: 'Chapter 2', color: 'bg-emerald-500' },
           { icon: Star, label: 'Chapter 3', color: 'bg-amber-500' },
           { icon: Star, label: 'Chapter 4', color: 'bg-rose-700' },
           { icon: Star, label: 'Chapter 5', color: 'bg-custom-blue' },
           { icon: Star, label: 'Chapter 6', color: 'bg-amber-600' },
-          { icon: Star, label: 'Chapter 7', color: 'bg-slate-400' },
+          { icon: Star, label: 'Chapter 7', color: 'bg-slate-500' },
           { icon: Star, label: 'Chapter 8', color: 'bg-slate-700' }
         ]
       },
       { icon: ChefHat, label: 'Recipes', color: 'bg-custom-green', rotate: 0.5 },
       { icon: Sword, label: 'Tattle Log', color: 'bg-custom-blue', rotate: -0.5 },
-      { icon: BadgeAlert, label: 'Badge Builds', color: 'bg-custom-purple', rotate: 1 }
+      { icon: BadgeAlert, label: 'Badge Builds', color: 'bg-custom-purple', rotate: 1 },
+      { icon: Medal, label: 'Tips & Tricks', color: 'bg-custom-red', rotate: 1 }
     ];
 
   const statsItems = [
-    { icon: Heart, label: 'HP', value: '10/10' },
-    { icon: Flower2, label: 'FP', value: '5/5' },
-    { icon: Star, label: 'BP', value: '3' }
+    { icon: Heart, label: 'HP', value: '100/100' },
+    { icon: Flower2, label: 'FP', value: '100/100' },
+    { icon: Star, label: 'BP', value: '99' }
   ];
 
   return (
