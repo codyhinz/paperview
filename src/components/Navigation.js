@@ -6,11 +6,11 @@ import {
   Timer,
   Home,
   Book,
-  Map,
+  BadgeAlert,
   Sword,
-  Users,
   ChevronLeft,
   ChevronRight,
+  ChefHat,
 } from 'lucide-react';
 import MenuItem from './MenuItem';
 import PaperBlock from './PaperBlock';
@@ -30,21 +30,27 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
     };
   
     const navigationItems = [
-      { icon: Home, label: 'Home', color: 'bg-rose-500', rotate: 1 },
+      { icon: Home, label: 'Home', color: 'bg-custom-pink', rotate: 1 },
       { 
         icon: Book, 
         label: 'Chapters', 
-        color: 'bg-amber-500', 
+        color: 'bg-custom-orange', 
         rotate: -1, 
         children: [
-          { icon: Star, label: 'Chapter 1', color: 'bg-grey-500' },
+          { icon: Star, label: 'Prologue', color: 'bg-custom-pink' },
+          { icon: Star, label: 'Chapter 1', color: 'bg-slate-500' },
           { icon: Star, label: 'Chapter 2', color: 'bg-emerald-500' },
-          { icon: Star, label: 'Chapter 3', color: 'bg-amber-500' }
+          { icon: Star, label: 'Chapter 3', color: 'bg-amber-500' },
+          { icon: Star, label: 'Chapter 4', color: 'bg-rose-700' },
+          { icon: Star, label: 'Chapter 5', color: 'bg-custom-blue' },
+          { icon: Star, label: 'Chapter 6', color: 'bg-amber-600' },
+          { icon: Star, label: 'Chapter 7', color: 'bg-slate-400' },
+          { icon: Star, label: 'Chapter 8', color: 'bg-slate-700' }
         ]
       },
-      { icon: Map, label: 'World', color: 'bg-blue-500', rotate: 0.5 },
-      { icon: Sword, label: 'Battle', color: 'bg-emerald-500', rotate: -0.5 },
-      { icon: Users, label: 'Characters', color: 'bg-purple-500', rotate: 1 }
+      { icon: ChefHat, label: 'Recipes', color: 'bg-custom-green', rotate: 0.5 },
+      { icon: Sword, label: 'Tattle Log', color: 'bg-custom-blue', rotate: -0.5 },
+      { icon: BadgeAlert, label: 'Badge Builds', color: 'bg-custom-purple', rotate: 1 }
     ];
 
   const statsItems = [
@@ -71,7 +77,7 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
       >
         <div className="p-6 flex flex-col gap-6">
           <div className="flex-none">
-            <PaperBlock color="bg-rose-500" rotate={-1} animationDelay={0.1}>
+            <PaperBlock color="bg-custom-red" rotate={-1} animationDelay={0.1}>
               <div className="p-4 text-white">
                 <h1 className="text-2xl font-black mb-1">PaperView</h1>
                 <div className="flex items-center gap-2 text-sm bg-black/20 p-2 rounded-lg">
