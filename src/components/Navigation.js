@@ -6,7 +6,6 @@ import {
   Timer,
   Home,
   Book,
-  BadgeAlert,
   Sword,
   ChevronLeft,
   ChevronRight,
@@ -15,6 +14,8 @@ import {
   CircleDollarSign,
   ChartNoAxesCombined,
   TriangleAlert,
+  MessageCircleWarning,
+  Shield,
 } from 'lucide-react';
 import MenuItem from './MenuItem';
 import PaperBlock from './PaperBlock';
@@ -22,13 +23,8 @@ import PaperBlock from './PaperBlock';
 const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
     const handlePageClick = (page) => {
       onPageChange(page);
-      // Only close nav if it's a leaf item (not a parent with children)
-      const clickedItem = navigationItems.find(item => item.label === page) || 
-                         navigationItems.find(item => 
-                           item.children?.some(child => child.label === page)
-                         )?.children?.find(child => child.label === page);
-      
-      if (!clickedItem?.children && window.innerWidth <= 768) {
+      // Only close nav if it's a leaf item (not a parent with children) and on mobile
+      if (window.innerWidth <= 768) {
         onNavToggle(false);
       }
     };
@@ -54,7 +50,8 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
       },
       { icon: ChefHat, label: 'Recipes', color: 'bg-custom-green', rotate: 0.5 },
       { icon: Sword, label: 'Tattle Log', color: 'bg-custom-blue', rotate: -0.5 },
-      { icon: BadgeAlert, label: 'Badge Builds', color: 'bg-custom-purple', rotate: 1 },
+      { icon: Shield, label: 'Badge Builds', color: 'bg-custom-purple', rotate: 1 },
+      { icon: MessageCircleWarning, label: 'Trouble Center Quests', color: 'bg-custom-pink', rotate: 1 },
       { 
         icon: Medal,
         label: 'Tips & Tricks', 
@@ -109,8 +106,10 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
                 key={item.label}
                 {...item}
                 isActive={activePage === item.label}
-                onClick={() => handlePageClick(item.label)}
+                onClick={handlePageClick}
                 animationDelay={0.2 + index * 0.1}
+                activePage={activePage}
+                parentExpanded={item.children?.some(child => child.label === activePage)}
               />
             ))}
           </div>

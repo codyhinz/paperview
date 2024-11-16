@@ -1,5 +1,4 @@
-// src/components/MenuItem.js
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useEffect } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { PaperBlock } from './common/PaperComponents';
 
@@ -12,34 +11,51 @@ const MenuItem = memo(({
   onClick, 
   rotate = 0, 
   animationDelay = 0, 
-  depth = 0 
+  depth = 0,
+  activePage,
+  parentExpanded
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const hasChildren = children && children.length > 0;
 
+  // Automatically open the menu if a child is active
+  useEffect(() => {
+    if (parentExpanded) {
+      setIsOpen(true);
+    }
+  }, [parentExpanded]);
+
   const handleClick = (e) => {
-    e.stopPropagation(); // Prevent event from bubbling up
+    e.stopPropagation();
     
     if (hasChildren) {
       setIsOpen(!isOpen);
-      // Also trigger the onClick to update the current page
       onClick?.(label);
     } else {
       onClick?.(label);
     }
   };
 
+  const handleChildClick = (childLabel) => {
+    onClick?.(childLabel);
+  };
+
+  // Determine if this item should show as active
+  const isCurrentlyActive = activePage === label;
+  const shouldShowActive = isCurrentlyActive || (hasChildren && children.some(child => child.label === activePage));
+
   return (
     <div className={`relative ${depth === 0 ? 'mb-4' : 'mb-2'}`}>
       <PaperBlock 
         color={color} 
-        isActive={isActive} 
+        isActive={isCurrentlyActive}
         rotate={rotate}
         animationDelay={animationDelay}
       >
         <button
           onClick={handleClick}
-          className="w-full flex items-center gap-2 p-4 text-white font-bold relative z-10"
+          className={`w-full flex items-center gap-2 p-4 text-white font-bold relative z-10
+            ${shouldShowActive ? 'bg-black/10 rounded-lg' : ''}`}
         >
           <div className="bg-black/20 p-2 rounded-full">
             <Icon className="w-5 h-5" />
@@ -74,8 +90,10 @@ const MenuItem = memo(({
                   rotate={-1 + Math.random() * 2}
                   className="menu-item-enter"
                   animationDelay={index * 0.1}
-                  onClick={onClick}
+                  onClick={() => handleChildClick(childItem.label)}
                   depth={depth + 1}
+                  activePage={activePage}
+                  isActive={childItem.label === activePage}
                 />
               </div>
             ))}

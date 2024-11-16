@@ -3,6 +3,7 @@ import React from 'react';
 import { ContentPaperBlock } from './common/PaperComponents';
 import HomeContent from './pages/HomeContent';
 import TipsAndTricks from './pages/TipsAndTricks';
+import ExperienceFarmingGuide from './pages/ExperienceFarmingGuide';
 
 const ComingSoonContent = ({ section }) => (
   <div className="bg-[#D6D6C3] p-6 rounded-lg border-2 border-gray-300">
@@ -19,6 +20,8 @@ const ContentCard = ({ currentPage }) => {
         return <HomeContent />;
       case 'Tips & Tricks':
         return <TipsAndTricks />;
+      case 'Experience Farms':
+        return <ExperienceFarmingGuide />;
       default:
         return <ComingSoonContent section={currentPage} />;
     }
