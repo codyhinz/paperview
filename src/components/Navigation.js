@@ -16,6 +16,7 @@ import {
   TriangleAlert,
   MessageCircleWarning,
   Shield,
+  HandCoins,
 } from 'lucide-react';
 import MenuItem from './MenuItem';
 import PaperBlock from './PaperBlock';
@@ -48,14 +49,15 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
           { icon: Star, label: 'Chapter 8', color: 'bg-custom-maroon' }
         ]
       },
-      { icon: ChefHat, label: 'Recipes', color: 'bg-custom-green', rotate: 0.5 },
-      { icon: Sword, label: 'Tattle Log', color: 'bg-custom-blue', rotate: -0.5 },
-      { icon: Shield, label: 'Badge Builds', color: 'bg-custom-purple', rotate: 1 },
-      { icon: MessageCircleWarning, label: 'Trouble Center Quests', color: 'bg-custom-pink', rotate: 1 },
+      { icon: HandCoins, label: 'Shops', color: 'bg-custom-green', rotate: 0.5 },
+      { icon: ChefHat, label: 'Recipes', color: 'bg-custom-blue', rotate: 0.5 },
+      { icon: Sword, label: 'Tattle Log', color: 'bg-custom-purple', rotate: -0.5 },
+      { icon: Shield, label: 'Badge Builds', color: 'bg-custom-pink', rotate: 1 },
+      { icon: MessageCircleWarning, label: 'Trouble Center Quests', color: 'bg-custom-red', rotate: 1 },
       { 
         icon: Medal,
         label: 'Tips & Tricks', 
-        color: 'bg-custom-red', 
+        color: 'bg-custom-blue', 
         rotate: 1,
         children: [
           { icon: CircleDollarSign, label: 'Money Making', color: 'bg-custom-orange' },
