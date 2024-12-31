@@ -1,4 +1,3 @@
-// src/components/pages/TipsAndTricks.js
 import React from 'react';
 import { Star, Sword, Shield, Timer, ChevronRight, Heart, Flower2 } from 'lucide-react';
 import { TipCard } from '../common/PaperComponents';

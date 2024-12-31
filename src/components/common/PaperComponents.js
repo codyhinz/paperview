@@ -1,4 +1,3 @@
-// src/components/common/PaperComponents.js
 import React from 'react';
 import contentCardBg from '../../assets/contentcard.png';
 

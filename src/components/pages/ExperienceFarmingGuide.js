@@ -1,4 +1,3 @@
-// src/components/pages/ExperienceFarmingGuide.js
 import React from 'react';
 import { ChevronRight, Trophy, Star, Timer } from 'lucide-react';
 import { TipCard } from '../common/PaperComponents';
