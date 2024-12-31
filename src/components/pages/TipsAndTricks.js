@@ -25,7 +25,7 @@ const TipsAndTricks = () => (
         <TipCard title="Combat Basics" icon={Sword} color="bg-custom-red">
           <ul className="space-y-2">
             <TipItem>Time your Action Commands! Press A just before impact for extra damage.</TipItem>
-            <TipItem>Guard with B to reduce damage. Perfect guards (pressed just before hit) reduce more!</TipItem>
+            <TipItem>Guard with A to reduce damage. Perfect guards (pressed just before hit) reduce more!</TipItem>
             <TipItem>Superguarding (press B with perfect timing) negates ALL damage!</TipItem>
             <TipItem>Crowd Control effects (sleep, dizzy, confusion, freeze, immobilize, etc) are all very effective for buying you more time!</TipItem>
           </ul>

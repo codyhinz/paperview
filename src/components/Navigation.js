@@ -17,6 +17,7 @@ import {
   MessageCircleWarning,
   Shield,
   HandCoins,
+  Shell,
 } from 'lucide-react';
 import MenuItem from './MenuItem';
 import PaperBlock from './PaperBlock';
@@ -34,7 +35,7 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
       { icon: Home, label: 'Home', color: 'bg-custom-pink', rotate: 1 },
       { 
         icon: Book, 
-        label: 'Chapters', 
+        label: 'Walkthrough', 
         color: 'bg-custom-orange', 
         rotate: -1, 
         children: [
@@ -49,11 +50,27 @@ const Navigation = ({ activePage, onPageChange, isNavOpen, onNavToggle }) => {
           { icon: Star, label: 'Chapter 8', color: 'bg-custom-maroon' }
         ]
       },
-      { icon: HandCoins, label: 'Shops', color: 'bg-custom-green', rotate: 0.5 },
-      { icon: ChefHat, label: 'Recipes', color: 'bg-custom-blue', rotate: 0.5 },
-      { icon: Sword, label: 'Tattle Log', color: 'bg-custom-purple', rotate: -0.5 },
-      { icon: Shield, label: 'Badge Builds', color: 'bg-custom-pink', rotate: 1 },
-      { icon: MessageCircleWarning, label: 'Trouble Center Quests', color: 'bg-custom-red', rotate: 1 },
+      { 
+        icon: Shell, 
+        label: 'Items', 
+        color: 'bg-custom-green', 
+        rotate: 0.5,
+        children: [
+          { icon: HandCoins, label: 'Shops', color: 'bg-custom-red' }
+        ]
+      },
+      { 
+        icon: Shield, 
+        label: 'Badges', 
+        color: 'bg-custom-blue', 
+        rotate: 1,
+        children: [
+          { icon: Star, label: 'Badge Builds', color: 'bg-slate-700' }
+        ]
+      },
+      { icon: ChefHat, label: 'Recipes', color: 'bg-custom-purple', rotate: 0.5 },
+      { icon: Sword, label: 'Tattle Log', color: 'bg-custom-pink', rotate: -0.5 },
+      { icon: MessageCircleWarning, label: 'Trouble Center', color: 'bg-custom-red', rotate: 1 },
       { 
         icon: Medal,
         label: 'Tips & Tricks', 
